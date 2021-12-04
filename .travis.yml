@@ -6,7 +6,11 @@ cache:
   directories:
     - public
     - .cache
+
 script:
+  - yarn test:unit
+
+after_success:
   - yarn build
 
 deploy:
