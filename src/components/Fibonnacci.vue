@@ -2,17 +2,39 @@
   <div>
     <h1>Fibonnacii</h1>
     <div>
-      <input type="number" v-model="input" min="0" max="999"/>
+      <label for="nr">K = </label>
+      <input id="nr" type="number" v-model="input" min="1" max="999"/>
+    </div>
+    <div>
+      Fibonacci({{input}}) =  {{ result }}
     </div>
   </div>
 </template>
 
 <script lang="ts">
 import {Options, Vue} from 'vue-class-component';
+import {computed} from "vue";
 
 @Options({})
 export default class Fibonnacci extends Vue {
-  input = 0;
+  input = 1;
+
+  calculateFibo = (result: number, counter: number): number => {
+    if (counter === 0) {
+      return 0;
+    } else if (counter === 1) {
+      return 1;
+    } else {
+      return this.calculateFibo(result, counter - 2)
+          + this.calculateFibo(result, counter - 1);
+    }
+  }
+
+  result = computed(() => {
+    return this.calculateFibo(0, this.input);
+  })
+
+
 }
 </script>
 
