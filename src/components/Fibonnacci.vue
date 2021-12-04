@@ -1,6 +1,9 @@
 <template>
   <div>
-    Work in progress
+    <h1>Fibonnacii</h1>
+    <div>
+      <input type="number" v-model="input" min="0" max="999"/>
+    </div>
   </div>
 </template>
 
@@ -9,6 +12,7 @@ import {Options, Vue} from 'vue-class-component';
 
 @Options({})
 export default class HelloWorld extends Vue {
+  input = 0;
 }
 </script>
 
