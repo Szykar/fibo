@@ -11,7 +11,7 @@
 import {Options, Vue} from 'vue-class-component';
 
 @Options({})
-export default class HelloWorld extends Vue {
+export default class Fibonnacci extends Vue {
   input = 0;
 }
 </script>
